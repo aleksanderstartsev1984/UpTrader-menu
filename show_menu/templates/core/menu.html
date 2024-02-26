@@ -1,0 +1,54 @@
+<ul id="1" class="tree">
+<li>
+    <span onclick="toggleChildren(this)">
+        {% if main_menu.url %}
+            <a href="{{ main_menu.url }}">{{ main_menu.name }}</a>
+        {% else %}
+            {{ main_menu.name }}
+        {% endif %}
+    </span>
+    {% if sub_menu_one %}
+    <ul id="2" class="tree" style="display: none;">
+    {% for s_item in sub_menu_one %}
+    <li>
+        <span onclick="toggleChildren(this)">
+            {% if s_item.url %}
+                <a href="{{ s_item.url }}">{{ s_item.name }}</a>
+            {% else %}
+                {{ s_item.name }}
+            {% endif %}
+        </span>
+        {% if sub_menu_two %}
+        <ul id="3" class="tree" style="display: none;">
+        {% for ss_item in sub_menu_two %}
+        {% if s_item.name == ss_item.parent %}
+        <li>
+            <span onclick="toggleChildren(this)">
+                {% if ss_item.url %}
+                <a href="{{ ss_item.url }}">{{ ss_item.name }}</a>
+                {% else %}
+                    {{ ss_item.name }}
+                {% endif %}
+            </span>
+            {% if sub_menu_three %}
+            <ul id="4" class="tree" style="display: none;">
+            {% for sss_item in sub_menu_three %}
+            {% if ss_item.name == sss_item.parent %}
+            <li>
+                <span><a href="{{ sss_item.url }}">{{ sss_item.name }}</a></span>
+            </li>
+            {% endif %}
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endif %}
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+</li>
+</ul>

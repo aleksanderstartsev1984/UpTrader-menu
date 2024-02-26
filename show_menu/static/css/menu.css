@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: green;
+}
+.tree {
+    list-style-type: none;
+    padding-left: 5px;
+}
+.tree li {
+    position: relative;
+    padding-left: 5px;
+}
+.tree li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+.tree li span {
+    cursor: pointer;
+}
+.tree li span:hover {
+    color: green;
+}
