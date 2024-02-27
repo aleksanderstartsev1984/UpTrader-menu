@@ -1,7 +1,4 @@
 #!bin/bash
-rm -rf show_menu/db.sqlite3
-rm -rf show_menu/core/migrations
-
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip setuptools
