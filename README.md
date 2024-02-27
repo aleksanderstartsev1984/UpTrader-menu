@@ -40,6 +40,10 @@ To add a new menu to a page, you need to place the following code on that page:
 Each menu has up to three levels of nesting.
 Each menu requires exactly 1 database query to render.
 
+### Latest version
+
+The latest version is in the dev branch.
+
 ### Author
 
 [Alexander Startsev](https://github.com/aleksanderstartsev1984)
