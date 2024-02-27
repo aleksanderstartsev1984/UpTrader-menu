@@ -1,5 +1,7 @@
-from core.models import Menu
 from django.template import Library
+
+from core.models import Menu
+
 
 register = Library()
 

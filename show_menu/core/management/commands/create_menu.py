@@ -1,15 +1,13 @@
 from django.conf import settings
 from django.core.management.base import BaseCommand
 
-from core.models import Menu, SubMenuOne, SubMenuThree, SubMenuTwo
+from core.models import Menu, SubMenuOne, SubMenuTwo
 
 
 MAIN_MENU_NAME = 'Menu'
 SUB_MENU_NAME = 'pages site'
 S_SUB_MENU_NAME = 'page'
 URL = 'http://127.0.0.1:8000/page'
-
-models_list = [SubMenuOne, SubMenuTwo, SubMenuThree]
 
 
 class Command(BaseCommand):
@@ -20,13 +18,13 @@ class Command(BaseCommand):
             menu = Menu.objects.create(name=MAIN_MENU_NAME)
             self.stdout.write(
                 self.style.SUCCESS(f'CREATION MENU <{MAIN_MENU_NAME}> OK')
-                )
+            )
 
             sub_menu = SubMenuOne.objects.create(name=SUB_MENU_NAME,
                                                  parent=menu)
             self.stdout.write(
                 self.style.SUCCESS(f'CREATION MENU <{SUB_MENU_NAME}> OK')
-                )
+            )
 
             data_points = []
             data_points.append(SubMenuTwo(
@@ -44,7 +42,7 @@ class Command(BaseCommand):
             SubMenuTwo.objects.bulk_create(data_points)
             self.stdout.write(
                 self.style.SUCCESS(f'CREATION MENU <{S_SUB_MENU_NAME}> OK')
-                )
+            )
 
         except Exception as error:
             self.stdout.write(
