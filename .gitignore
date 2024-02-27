@@ -148,3 +148,4 @@ dmypy.json
 -------------------
 
 migrations/
+my-project-run.sh
