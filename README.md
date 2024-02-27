@@ -14,7 +14,7 @@ Test task for the company [UpTrader](https://uptrader.io/)
 
 While in the root folder of the project, run the command
 ```sh
-. project-run
+. project-run.sh
 ```
 This script will create and activate the virtual environment, update the pip
 and setuptools packages, install dependencies, create and apply migrations,

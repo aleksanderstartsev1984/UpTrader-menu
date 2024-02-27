@@ -7,8 +7,6 @@ from core.models import Menu, SubMenuOne, SubMenuThree, SubMenuTwo
 MAIN_MENU_NAME = 'Test menu'
 SUB_MENU_NAME = 'Sub menu'
 
-models_list = [SubMenuOne, SubMenuTwo, SubMenuThree]
-
 
 class Command(BaseCommand):
     """Create test menu."""
