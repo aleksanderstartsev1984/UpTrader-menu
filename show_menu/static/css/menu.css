@@ -1,3 +1,39 @@
+.title-menu {
+    font-size: 120%;
+    font-weight: bold;
+}
+.left {
+    position: absolute;
+    padding: 2vmax;
+    left: 0;
+    top: 0;
+    width: 20%;
+    min-height: 100vh;
+    max-height: max-content;
+    border-radius: 2cap;
+}
+.left:hover {
+    box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.2);
+}
+.right {
+    position: absolute;
+    padding: 2vmax;
+    right: 0;
+    top: 0;
+    width: 72%;
+    min-height: 100vh;
+    max-height: max-content;
+    border-radius: 2cap;
+}
+.right:hover {
+    box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);
+}
+body {
+    background-color: rgb(195, 191, 191);
+}
+menu {
+    text-align: center;
+}
 a {
     text-decoration: none;
 }

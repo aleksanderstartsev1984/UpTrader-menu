@@ -13,12 +13,13 @@
     <title>{% block title %}Menu{% endblock title %}</title>
   </head>
   <body>
+    <div class="left">
     {% addmenu "Test menu 1" %}
     {% addmenu "Test menu 3" %}
 
     {% addmenu "Menu" %}
-
-    <main>
+    </div>
+    <main class="right">
       {% block content %}
         <h1>No content...</h1>
       {% endblock content %}

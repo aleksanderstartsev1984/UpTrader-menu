@@ -1,15 +1,16 @@
 var activeUrl = window.location.toString()
 var arrayElementA = document.querySelectorAll("ul > li > span > a")
+
 for (elem of arrayElementA) {
     if (elem.href == activeUrl) {
         elem.style.color = "green"
         elem.text = elem.text + " <---this"
-        while (elem.closest("ul").id > 2) {
+        while (elem.closest("ul").id > 1) {
             var parent = elem.closest("ul")
             parent.style.display = "block"
             elem = parent.closest("li")
         }
-        break
+        // break
     }
 }
 
