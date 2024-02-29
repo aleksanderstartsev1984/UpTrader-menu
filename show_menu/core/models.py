@@ -53,7 +53,8 @@ class SubMenuTwo(BaseMenu):
 
 class SubMenuThree(BaseMenu):
     url = models.CharField('Ссылка',
-                           max_length=settings.CHAR_FIELD_LENGTH)
+                           max_length=settings.CHAR_FIELD_LENGTH,
+                           unique=True)
     parent = models.ForeignKey(SubMenuTwo,
                                verbose_name='Подменю 2',
                                related_name='parent_menu',
