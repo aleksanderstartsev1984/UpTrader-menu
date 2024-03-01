@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -17,6 +18,14 @@ class BaseMenu(models.Model):
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        if self.parent_menu.exists() and self.url:
+            raise ValidationError(
+                'Поле "Ссылка" недоступно для редактирования так как'
+                f' "{self.name}" имеет наследников'
+                f' "{self.parent_menu.all()}"'
+            )
 
 
 class Menu(BaseMenu):

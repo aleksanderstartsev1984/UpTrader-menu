@@ -1,6 +1,5 @@
-from django.contrib import admin
-
 from core.models import Menu, SubMenuOne, SubMenuThree, SubMenuTwo
+from django.contrib import admin
 
 
 admin.site.register(Menu)
@@ -10,6 +9,7 @@ admin.site.register(Menu)
 class SubMenuOneAdmin(admin.ModelAdmin):
     list_filter = ['parent']
     empty_value_display = '-пусто-'
+    # readonly_fields = ['url']
 
 
 @admin.register(SubMenuTwo)
