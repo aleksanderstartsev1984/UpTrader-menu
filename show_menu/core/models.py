@@ -13,27 +13,27 @@ class BaseMenu(models.Model):
                            blank=True,
                            null=True)
 
-    class Meta:
+    class Meta():
         abstract = True
+        ordering = ["pk"]
 
     def __str__(self):
         return self.name
 
     def clean(self):
-        if self.parent_menu.exists() and self.url:
+        if hasattr(self, 'parent_menu') and self.url:
             raise ValidationError(
                 'Поле "Ссылка" недоступно для редактирования так как'
-                f' "{self.name}" имеет наследников'
+                f' "{self.name}" имеет наследников:'
                 f' "{self.parent_menu.all()}"'
             )
 
 
 class Menu(BaseMenu):
 
-    class Meta:
+    class Meta(BaseMenu.Meta):
         verbose_name = 'Меню'
         verbose_name_plural = 'Список доступных меню'
-        ordering = ["pk"]
 
 
 class SubMenuOne(BaseMenu):
@@ -42,10 +42,9 @@ class SubMenuOne(BaseMenu):
                                related_name='parent_menu',
                                on_delete=models.CASCADE)
 
-    class Meta:
+    class Meta(BaseMenu.Meta):
         verbose_name = 'Подменю 1'
         verbose_name_plural = 'Список доступных подменю 1'
-        ordering = ["pk"]
 
 
 class SubMenuTwo(BaseMenu):
@@ -54,10 +53,9 @@ class SubMenuTwo(BaseMenu):
                                related_name='parent_menu',
                                on_delete=models.CASCADE)
 
-    class Meta:
+    class Meta(BaseMenu.Meta):
         verbose_name = 'Подменю 2'
         verbose_name_plural = 'Список доступных подменю 2'
-        ordering = ["pk"]
 
 
 class SubMenuThree(BaseMenu):
@@ -69,7 +67,6 @@ class SubMenuThree(BaseMenu):
                                related_name='parent_menu',
                                on_delete=models.CASCADE)
 
-    class Meta:
+    class Meta(BaseMenu.Meta):
         verbose_name = 'Подменю 3'
         verbose_name_plural = 'Список доступных подменю 3'
-        ordering = ["pk"]

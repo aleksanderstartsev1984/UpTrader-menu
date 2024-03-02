@@ -18,16 +18,18 @@ While in the root folder of the project, run the command
 ```
 This script will create and activate the virtual environment, update the pip
 and setuptools packages, install dependencies, create and apply migrations,
-create a superuser, create two test menus and a site navigation menu.
+create a superuser, create one menu site navigation.
+
 The Django server will be launched, accessible at
 ```
 http://127.0.0.1:8000/
 ```
 
-Tags for test menus and site menus have already been added to the site pages.
+Tag for site menus have already been added to the base template.
+To quickly create a new menu, the “add menu” button has been implemented,
+to delete the last created menu, click on the “delete last menu” button.
 
-To create a new menu, you need to register the necessary items in the site’s
-admin panel
+To create a new menu, you need to register the necessary items in the site’s admin panel
 ```
 http://127.0.0.1:8000/admin/
 ```

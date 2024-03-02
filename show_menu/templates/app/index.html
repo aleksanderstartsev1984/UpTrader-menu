@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock title %}
 {% block content %}
-<h1>{{ content }}</h1>
+<h1>{{ header }}</h1>
+{% lorem 10 p random %}
 {% endblock content %}

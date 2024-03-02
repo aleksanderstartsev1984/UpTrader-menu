@@ -9,7 +9,6 @@ admin.site.register(Menu)
 class SubMenuOneAdmin(admin.ModelAdmin):
     list_filter = ['parent']
     empty_value_display = '-пусто-'
-    # readonly_fields = ['url']
 
 
 @admin.register(SubMenuTwo)

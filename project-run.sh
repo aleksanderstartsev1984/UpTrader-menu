@@ -8,7 +8,5 @@ cd show_menu
 python manage.py makemigrations core
 python manage.py migrate
 python manage.py createsuperuser
-python manage.py create_test_menu
 python manage.py create_menu
-python manage.py create_test_menu
 python manage.py runserver
