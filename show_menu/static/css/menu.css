@@ -1,18 +1,27 @@
+button {
+    border-radius: 0.5cap;
+}
+button:hover {
+    background-color: rgb(200, 202, 205);
+}
 .title-menu {
     font-size: 120%;
     font-weight: bold;
 }
-.left {
+.sidebar {
     position: absolute;
     padding: 2vmax;
     left: 0;
     top: 0;
-    width: 20%;
-    min-height: 100vh;
-    max-height: max-content;
+    width: 15%;
+    height: 90%;
+    /* min-height: 100vh;
+    max-height: max-content; */
     border-radius: 2cap;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
-.left:hover {
+.sidebar:hover {
     box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.2);
 }
 .right {
@@ -20,10 +29,13 @@
     padding: 2vmax;
     right: 0;
     top: 0;
-    width: 72%;
-    min-height: 100vh;
-    max-height: max-content;
+    width: 77%;
+    height: 90%;
+    /* min-height: 100vh;
+    max-height: max-content; */
     border-radius: 2cap;
+    overflow-y:auto;
+    scrollbar-width:none;
 }
 .right:hover {
     box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);

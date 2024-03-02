@@ -1,6 +1,5 @@
-from django.contrib import admin
-
 from core.models import Menu, SubMenuOne, SubMenuThree, SubMenuTwo
+from django.contrib import admin
 
 
 admin.site.register(Menu)
