@@ -1,0 +1,9 @@
+{% load menu %}
+<div class="sidebar">
+    <a href={% url "app:create_menu" %}><button>add menu</button></a>
+    <br><br>
+    <a href={% url "app:delete_menu" %}><button>delete last menu</button></a>
+    {% addmenu "Menu 1" %}
+    {% addmenu "Menu 85" %}
+<div id="include-test-menu"></div>
+</div>

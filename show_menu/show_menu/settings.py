@@ -93,7 +93,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CHAR_FIELD_LENGTH = 255
 
 NUMBER_OF_ITEMS = 5
-NUMBER_OF_ITEMS_SITE = 4
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]

@@ -21,11 +21,14 @@ class BaseMenu(models.Model):
         return self.name
 
     def clean(self):
-        if hasattr(self, 'parent_menu') and self.url:
+        # if self.pk - if it's not creation
+        if self.pk and self.parent_menu.all() and self.url:
+            children_list = str(
+                *[child.name for child in self.parent_menu.all()]
+            )
             raise ValidationError(
                 'Поле "Ссылка" недоступно для редактирования так как'
-                f' "{self.name}" имеет наследников:'
-                f' "{self.parent_menu.all()}"'
+                f' "{self.name}" имеет наследников:   {children_list}'
             )
 
 
@@ -70,3 +73,6 @@ class SubMenuThree(BaseMenu):
     class Meta(BaseMenu.Meta):
         verbose_name = 'Подменю 3'
         verbose_name_plural = 'Список доступных подменю 3'
+
+    def clean(self):
+        return models.Model.clean(self)

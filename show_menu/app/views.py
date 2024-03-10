@@ -1,8 +1,12 @@
+from django.conf import settings
 from django.contrib import messages
 from django.shortcuts import redirect, render
 
 from core.management.commands.create_menu import Command
 from core.models import Menu
+
+
+PATH_TO_SIDEBAR = settings.TEMPLATES_DIR + '/includes/sidebar.html'
 
 
 def index(request):
@@ -11,32 +15,32 @@ def index(request):
     return render(request, 'app/index.html', context)
 
 
-def create_test_menu(request):
+def create_menu(request):
     add_menu = Command()
     name = add_menu.handle()
-    with open('./templates/base.html', 'r') as f:
+    substring = '<div id="include-test-menu"></div>'
+    with open(PATH_TO_SIDEBAR, 'r') as f:
         data = f.read()
-        data = data.replace('<div id="include"></div>',
-                            '{% addmenu "' + name + '" %}\n'
-                            '<div id="include"></div>')
-    with open('./templates/base.html', 'w') as f:
+        data = data.replace(substring,
+                            '{% addmenu "' + name + '" %}\n' + substring)
+    with open(PATH_TO_SIDEBAR, 'w') as f:
         f.write(data)
 
     return redirect(request.META.get('HTTP_REFERER'))
 
 
-def delete_test_menu(request):
+def delete_menu(request):
     menu = Menu.objects.last()
-    if not menu or menu.id < 2:
+    if not menu or menu.id == 1:
         messages.add_message(request,
                              messages.ERROR,
                              "Нет доступных для удаления элементов.")
     else:
         menu.delete()
-        with open('./templates/base.html', 'r') as f:
+        with open(PATH_TO_SIDEBAR, 'r') as f:
             data = f.read()
             data = data.replace('{% addmenu "' + menu.name + '" %}\n', '')
-        with open('./templates/base.html', 'w') as f:
+        with open(PATH_TO_SIDEBAR, 'w') as f:
             f.write(data)
 
     return redirect(request.META.get('HTTP_REFERER'))
