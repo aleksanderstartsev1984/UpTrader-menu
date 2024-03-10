@@ -23,12 +23,11 @@ class BaseMenu(models.Model):
     def clean(self):
         # if self.pk - if it's not creation
         if self.pk and self.parent_menu.all() and self.url:
-            children_list = str(
-                *[child.name for child in self.parent_menu.all()]
-            )
+            children_list = [child.name for child in self.parent_menu.all()]
+            children = ', '.join(children_list)
             raise ValidationError(
                 'Поле "Ссылка" недоступно для редактирования так как'
-                f' "{self.name}" имеет наследников:   {children_list}'
+                f' "{self.name}" имеет наследников:   {children}'
             )
 
 
